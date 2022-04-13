@@ -1,14 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/et_first_name_layout"
+    style="@style/style_text_input_layout"
+    android:hint="first name">
 
-</FrameLayout>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_first_name"
+        style="@style/style_edit_text"
+        android:inputType="text" />
+</com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_last_name_layout"
+        style="@style/style_text_input_layout"
+        android:hint="last name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_last_name"
+            style="@style/style_edit_text"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_father_name_layout"
+        style="@style/style_text_input_layout"
+        android:hint="father's name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_father_name"
+            style="@style/style_edit_text"
+            android:inputType="text" />
+</com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_postal_code_layout"
+        style="@style/style_text_input_layout"
+        android:hint="postal code">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_postal_code"
+            style="@style/style_edit_text"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_phone_number_layout"
+        style="@style/style_text_input_layout"
+        android:hint="phone number">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_phone_number"
+            style="@style/style_edit_text"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_number_of_accounts_layout"
+        style="@style/style_text_input_layout"
+        android:hint="number of accounts">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_number_of_accounts"
+            style="@style/style_edit_text"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/textButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="submit"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:textSize="28sp" />
+
+</LinearLayout>
