@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import ir.homework.bankaccount.databinding.FragmentShowAccountsBinding
 
 class ShowAccountsFragment : Fragment() {
+    lateinit var binding: FragmentShowAccountsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +18,7 @@ class ShowAccountsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_show_accounts, container, false)
+        binding = FragmentShowAccountsBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 }

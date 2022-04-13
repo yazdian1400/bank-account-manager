@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import ir.homework.bankaccount.databinding.FragmentShowProfileBinding
 
 class ShowProfileFragment : Fragment() {
+    lateinit var binding: FragmentShowProfileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +18,7 @@ class ShowProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_show_profile, container, false)
+        binding = FragmentShowProfileBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 }
