@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import ir.homework.bankaccount.databinding.FragmentCreateAccountsBinding
 
 class CreateAccountsFragment : Fragment() {
     lateinit var binding: FragmentCreateAccountsBinding
+    val vModel: MainViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
