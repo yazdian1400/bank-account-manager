@@ -18,4 +18,14 @@
         <item name="cornerRadius">64dp</item>
         <item name="backgroundTint">@color/white</item>
     </style>
+
+    <style name="style_text_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minWidth">@dimen/custom_min_width</item>
+        <item name="android:maxWidth">@dimen/custom_max_width</item>
+        <item name="android:textSize">28sp</item>
+        <item name="cornerRadius">64dp</item>
+    </style>
 </resources>
