@@ -10,15 +10,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import ir.homework.bankaccount.databinding.FragmentProfileBinding
-import ir.homework.bankaccount.databinding.FragmentShowProfileBinding
+import kotlin.properties.Delegates
 
 class ProfileFragment : Fragment() {
     lateinit var binding: FragmentProfileBinding
     val vModel: MainViewModel by activityViewModels()
     lateinit var sharedPreferences: SharedPreferences
+    var flag by Delegates.notNull<Boolean>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        flag = true
     }
 
     override fun onCreateView(
@@ -32,11 +34,21 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showProfileIfExist()
+
         binding.btnSubmitProfile.setOnClickListener{
             if (validateProfile())  {
                 saveProfileInSharePref()
                 findNavController().navigate(R.id.action_nav_profile_to_showProfileFragment)
             }
+        }
+    }
+
+    private fun showProfileIfExist() {
+        val firstName = sharedPreferences.getString("firstName", "")
+        if (!firstName.isNullOrBlank() and flag) {
+            flag = false
+            findNavController().navigate(R.id.action_nav_profile_to_showProfileFragment)
         }
     }
 
