@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import ir.homework.bankaccount.databinding.FragmentShowProfileBinding
 
 class ShowProfileFragment : Fragment() {
@@ -31,6 +32,10 @@ class ShowProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getProfileFromSharedPref()
+
+        binding.btnEditProfile.setOnClickListener{
+            activity?.onBackPressed()
+        }
     }
 
     private fun getProfileFromSharedPref() {
