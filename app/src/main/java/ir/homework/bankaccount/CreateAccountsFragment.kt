@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import ir.homework.bankaccount.databinding.FragmentCreateAccountsBinding
@@ -45,6 +47,11 @@ class CreateAccountsFragment : Fragment() {
                     binding.btnNextCreate.isEnabled = false
             }
         }
+
+        val languages = resources.getStringArray(R.array.accounts_type)
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.list_item, languages)
+        binding.autoCompleteTextView.setAdapter(arrayAdapter)
+
     }
 
     private fun validateInputs(): Boolean {
