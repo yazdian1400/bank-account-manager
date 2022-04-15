@@ -31,5 +31,9 @@
         android:id="@+id/tv_number_of_accounts"
         style="@style/style_text_view"
         tools:text="number of accounts"/>
+    <Button
+        android:id="@+id/btn_edit_profile"
+        style="@style/style_button"
+        android:text="edit profile" />
 
 </LinearLayout>
