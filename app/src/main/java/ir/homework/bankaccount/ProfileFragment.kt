@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import ir.homework.bankaccount.databinding.FragmentProfileBinding
 import ir.homework.bankaccount.databinding.FragmentShowProfileBinding
 
@@ -34,6 +35,7 @@ class ProfileFragment : Fragment() {
         binding.btnSubmitProfile.setOnClickListener{
             if (validateProfile())  {
                 saveProfileInSharePref()
+                findNavController().navigate(R.id.action_nav_profile_to_showProfileFragment)
             }
         }
     }

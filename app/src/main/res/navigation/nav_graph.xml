@@ -14,7 +14,11 @@
         android:id="@+id/nav_profile"
         android:name="ir.homework.bankaccount.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_to_showProfileFragment"
+            app:destination="@id/showProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_select_account"
         android:name="ir.homework.bankaccount.SelectAccountFragment"
@@ -25,4 +29,9 @@
         android:name="ir.homework.bankaccount.ShowAccountsFragment"
         android:label="fragment_show_accounts"
         tools:layout="@layout/fragment_show_accounts" />
+    <fragment
+        android:id="@+id/showProfileFragment"
+        android:name="ir.homework.bankaccount.ShowProfileFragment"
+        android:label="fragment_show_profile"
+        tools:layout="@layout/fragment_show_profile" />
 </navigation>
