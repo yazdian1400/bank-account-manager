@@ -44,7 +44,7 @@ class CreateAccountsFragment : Fragment() {
             else if (validateInputs()) {
                 val cardNum = binding.etCardNumberCreate.text.toString()
                 val balance = binding.etBalanceCreate.text.toString().toInt()
-                val hasFinished = vModel.nextInCreate(num!!, cardNum, balance)
+                val hasFinished = vModel.nextInCreate(num!!, cardNum, balance, accountType)
 
                 if (hasFinished)
                     binding.btnNextCreate.isEnabled = false

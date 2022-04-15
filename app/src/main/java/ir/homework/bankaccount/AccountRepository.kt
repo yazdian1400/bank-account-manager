@@ -14,8 +14,8 @@ object AccountRepository {
         //addTestData()
     }
 
-    fun addAccountToDB(cardNum: String, balance: Int){
-        db!!.accountDao().insert(Account(cardNum,AccountType.GHARZOLHASANE, balance))
+    fun addAccountToDB(cardNum: String, balance: Int, type: AccountType){
+        db!!.accountDao().insert(Account(cardNum,type, balance))
     }
 
     fun getCount(): Int {
