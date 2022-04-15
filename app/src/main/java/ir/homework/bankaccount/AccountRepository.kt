@@ -9,8 +9,16 @@ object AccountRepository {
     fun initDB(context : Context){
         db = AppDatabase.getAppDataBase(context)
 
-        accountDao = db?.questionDao()
+        accountDao = db?.accountDao()
 
         //addTestData()
+    }
+
+    fun addAccountToDB(cardNum: String, balance: Int){
+        db!!.accountDao().insert(Account(cardNum,AccountType.GHARZOLHASANE, balance))
+    }
+
+    fun getCount(): Int {
+        return db!!.accountDao().getCount()
     }
 }

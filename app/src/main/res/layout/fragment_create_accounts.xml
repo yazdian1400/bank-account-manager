@@ -19,7 +19,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/style_text_input_layout"
-        android:hint="card number">
+        android:hint="balance">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_balance_create"

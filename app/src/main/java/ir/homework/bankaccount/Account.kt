@@ -5,8 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Account(
-    @PrimaryKey val id: Int,    //(autoGenerate = true)
+    //@PrimaryKey val id: Int,    //(autoGenerate = true)
+    @PrimaryKey val cardNumber: String,
     val type: AccountType,
-    val cardNumber: String,
     val balance: Int
 )
