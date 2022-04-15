@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
@@ -32,9 +33,11 @@ class CreateAccountsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var accountType = AccountType.GHARZOLHASANE
 
         binding.btnNextCreate.setOnClickListener{
             val num = sharedPreferences.getString("numAccounts", "0")?.toInt()
+
             if (num == 0) {
                 Toast.makeText(requireContext(), "please enter number of accounts in profile.",Toast.LENGTH_SHORT ).show()
                 }
@@ -50,9 +53,21 @@ class CreateAccountsFragment : Fragment() {
 
         val languages = resources.getStringArray(R.array.accounts_type)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.list_item, languages)
-        binding.autoCompleteTextView.setAdapter(arrayAdapter)
+        binding.etAccountType.setAdapter(arrayAdapter)
 
+
+        binding.etAccountType.onItemClickListener =
+            AdapterView.OnItemClickListener { adapterView, view, position, id ->
+                accountType = when (position) {
+                    0 -> AccountType.GHARZOLHASANE
+                    1 -> AccountType.SHORTTIME
+                    else -> AccountType.LONGTIME
+                }
+            }
     }
+
+
+
 
     private fun validateInputs(): Boolean {
         if (binding.etCardNumberCreate.text.isNullOrBlank()) {
