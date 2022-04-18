@@ -19,7 +19,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app){
         accountList[num]
     }
 
-    var foundAccountLiveData = MutableLiveData<Account>(null)
+    var foundAccountLiveData = MutableLiveData<Account?>(null)
 
     init {
         AccountRepository.initDB(app.applicationContext)
