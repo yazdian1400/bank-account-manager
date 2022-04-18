@@ -25,4 +25,8 @@ object AccountRepository {
     fun getAllQuestions(): List<Account> {
         return db!!.accountDao().getAll()
     }
+
+    fun getAccountByCardNumber(cardNum: String): Account? {
+        return db!!.accountDao().getAccountByCardNumber(cardNum)
+    }
 }

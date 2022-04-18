@@ -18,6 +18,9 @@ class MainViewModel(app: Application) : AndroidViewModel(app){
     var account: LiveData<Account> = Transformations.map(numInShowAccount) { num ->
         accountList[num]
     }
+
+    var foundAccountLiveData = MutableLiveData<Account>(null)
+
     init {
         AccountRepository.initDB(app.applicationContext)
         accountList = AccountRepository.getAllQuestions()
@@ -40,6 +43,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app){
         return AccountRepository.getAllQuestions()
     }
 
+    //show accounts fragment
     fun nextClicked() {
         val count = getCount()
 
@@ -62,4 +66,12 @@ class MainViewModel(app: Application) : AndroidViewModel(app){
         nextEnabledLiveData.value = numInShowAccount.value!! != (count - 1)
     }
 
+    // select account fragment
+    fun getAccountByCardNumber(cardNum: String): Account? {
+        return AccountRepository.getAccountByCardNumber(cardNum)
+    }
+
+    fun findAccount(cardNum: String){
+        foundAccountLiveData.value = getAccountByCardNumber(cardNum)
+    }
 }

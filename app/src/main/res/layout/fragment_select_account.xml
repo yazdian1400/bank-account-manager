@@ -7,10 +7,16 @@
     android:orientation="vertical"
     tools:context=".SelectAccountFragment">
 
-    <TextView
-        android:id="@+id/tv_card_number_select"
-        style="@style/style_text_view"
-        tools:text="card number"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/style_text_input_layout"
+        android:hint="card number">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_card_number_select"
+            style="@style/style_edit_text"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_find"
