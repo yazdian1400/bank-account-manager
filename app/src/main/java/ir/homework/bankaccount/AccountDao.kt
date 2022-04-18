@@ -1,11 +1,13 @@
 package ir.homework.bankaccount
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface AccountDao {
     @Query("SELECT * FROM Account")
     fun getAll(): List<Account>
+
 
     @Query("SELECT COUNT(cardNumber) FROM Account")
     fun getCount(): Int

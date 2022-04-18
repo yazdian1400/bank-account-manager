@@ -21,4 +21,8 @@ object AccountRepository {
     fun getCount(): Int {
         return db!!.accountDao().getCount()
     }
+
+    fun getAllQuestions(): List<Account> {
+        return db!!.accountDao().getAll()
+    }
 }

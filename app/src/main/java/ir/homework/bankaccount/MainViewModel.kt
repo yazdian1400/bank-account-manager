@@ -2,12 +2,25 @@ package ir.homework.bankaccount
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 
 
 class MainViewModel(app: Application) : AndroidViewModel(app){
 
+    var numInShowAccount = MutableLiveData<Int>(0)
+
+    var nextEnabledLiveData = MutableLiveData<Boolean>(true)
+    var prevEnabledLiveData = MutableLiveData<Boolean>(false)
+
+    lateinit var accountList: List<Account>
+    var account: LiveData<Account> = Transformations.map(numInShowAccount) { num ->
+        accountList[num]
+    }
     init {
         AccountRepository.initDB(app.applicationContext)
+        accountList = AccountRepository.getAllQuestions()
     }
 
     fun nextInCreate(numAccounts:Int, cardNum: String, balance: Int, type: AccountType): Boolean {
@@ -21,6 +34,32 @@ class MainViewModel(app: Application) : AndroidViewModel(app){
 
     fun getCount(): Int {
         return AccountRepository.getCount()
+    }
+
+    fun getAllQuestions(): List<Account> {
+        return AccountRepository.getAllQuestions()
+    }
+
+    fun nextClicked() {
+        val count = getCount()
+
+        if (numInShowAccount.value!! < (count - 1)) {
+            numInShowAccount.value = numInShowAccount.value!!.plus(1)
+        }
+
+        prevEnabledLiveData.value = numInShowAccount.value!! != 0
+        nextEnabledLiveData.value = numInShowAccount.value!! != (count - 1)
+    }
+
+    fun prevClicked() {
+        val count = getCount()
+
+        if (numInShowAccount.value!! > 0) {
+            numInShowAccount.value = numInShowAccount.value!!.minus(1)
+        }
+
+        prevEnabledLiveData.value = numInShowAccount.value!! != 0
+        nextEnabledLiveData.value = numInShowAccount.value!! != (count - 1)
     }
 
 }
