@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SelectAccountFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tv_card_number_select"
+        style="@style/style_text_view"
+        tools:text="card number"/>
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btn_find"
+        style="@style/style_button"
+        android:text="find account" />
+
+    <TextView
+        android:id="@+id/tv_balance_select"
+        style="@style/style_text_view"
+        tools:text="balance"/>
+    <TextView
+        android:id="@+id/tv_account_type_select"
+        style="@style/style_text_view"
+        tools:text="account type"/>
+
+</LinearLayout>
