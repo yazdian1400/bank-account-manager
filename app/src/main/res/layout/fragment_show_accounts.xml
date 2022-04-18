@@ -20,4 +20,22 @@
         style="@style/style_text_view"
         tools:text="account type"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_prev_show"
+            style="@style/style_button"
+            android:text="prev" />
+
+        <Button
+            android:id="@+id/btn_next_show"
+            style="@style/style_button"
+            android:text="next" />
+
+    </LinearLayout>
+
     </LinearLayout>
