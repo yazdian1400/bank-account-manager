@@ -29,4 +29,8 @@ object AccountRepository {
     fun getAccountByCardNumber(cardNum: String): Account? {
         return db!!.accountDao().getAccountByCardNumber(cardNum)
     }
+
+    fun deleteAll() {
+        return db!!.accountDao().deleteAll()
+    }
 }

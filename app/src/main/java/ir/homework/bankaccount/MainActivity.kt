@@ -68,11 +68,10 @@ class MainActivity : AppCompatActivity(), DeleteDialogFragment.DeleteDialogListe
     }
 
     override fun onDialogPositiveClick(dialog: DialogFragment) {
-        Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show()
+        vModel.deleteAll()
     }
 
     override fun onDialogNegativeClick(dialog: DialogFragment) {
-        Toast.makeText(this, "no", Toast.LENGTH_SHORT).show()
     }
 
 }

@@ -77,7 +77,8 @@ class MainViewModel(app: Application) : AndroidViewModel(app){
         foundAccountLiveData.value = getAccountByCardNumber(cardNum)
     }
 
-
     //activity
-
+    fun deleteAll() {
+        AccountRepository.deleteAll()
+    }
 }

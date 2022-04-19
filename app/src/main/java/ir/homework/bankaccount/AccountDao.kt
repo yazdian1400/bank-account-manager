@@ -15,8 +15,8 @@ interface AccountDao {
     @Query("SELECT * FROM Account WHERE cardNumber =:cardNum LIMIT 1")
     fun getAccountByCardNumber(cardNum: String): Account?
 
-//    @Query("UPDATE Account SET userAnswer = :userAnswer WHERE number = :id")
-//    fun updateUserAnswer(id: Int, userAnswer: UserAnswer)
+    @Query("DELETE FROM Account")
+    fun deleteAll()
 
     @Insert         //(onConflict = OnConflictStrategy.REPLACE)
     fun insert(account: Account)
