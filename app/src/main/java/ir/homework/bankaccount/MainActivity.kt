@@ -3,7 +3,11 @@ package ir.homework.bankaccount
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
 
@@ -11,9 +15,10 @@ import com.google.android.material.navigation.NavigationView
 import ir.homework.bankaccount.databinding.ActivityMainBinding
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), DeleteDialogFragment.DeleteDialogListener {
     private lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var binding: ActivityMainBinding
+    val vModel: MainViewModel by viewModels()
     lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener(NavigationView.OnNavigationItemSelectedListener { item ->
             if (item.itemId == R.id.nav_delete_all) {
-                finish()
+                showDeleteDialog()
             }
             else {
                 NavigationUI.onNavDestinationSelected(item, navController)
@@ -55,6 +60,19 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    fun showDeleteDialog() {
+        val dialog = DeleteDialogFragment()
+        dialog.show(supportFragmentManager, "NoticeDialogFragment")
+    }
+
+    override fun onDialogPositiveClick(dialog: DialogFragment) {
+        Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDialogNegativeClick(dialog: DialogFragment) {
+        Toast.makeText(this, "no", Toast.LENGTH_SHORT).show()
     }
 
 }
